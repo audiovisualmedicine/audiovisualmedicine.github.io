@@ -1,17 +1,22 @@
 {
   "name": "audiovisualmedicine",
   "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "eslint": "^9.38.0",
+    "globals": "^16.4.0",
     "standard": "*"
   },
   "scripts": {
     "build": "browserify scripts/main.js > scripts/bundle.js",
-    "dev": "nodemon app.js --exec 'standard && npm run build && node'",
+    "dev": "nodemon app.js --exec 'npm run build && node'",
     "buildAux": "browserify you/scripts/content.js > you/scripts/ok/content.js",
     "buildAux2": "browserify you/scripts/background.js > you/scripts/ok/background.js",
     "buildAux3": "browserify you/scripts/pop.js > you/scripts/ok/pop.js",
     "buildEzip": "standard you/pop.js you/contentScript.js you/background.js you/fnetwork.js && npm run buildAux && npm run buildAux2 && browserify you/pop.js > you/pop_ok.js",
     "buildExt": "nodemon --exec 'standard && npm run buildAux && npm run buildAux2 && npm run buildAux3'",
-    "fixme": "standard --fix"
+    "fixme": "standard --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@atlassian/jira": "^0.1.0",
@@ -41,6 +46,7 @@
     "jquery": "^3.5.1",
     "linkifyjs": "^2.1.9",
     "lz-string": "^1.4.4",
+    "mongodb": "^6.20.0",
     "mongodb-stitch-browser-sdk": "^4.8.0",
     "nodemon": "^2.0.3",
     "nosleep.js": "^0.12.0",

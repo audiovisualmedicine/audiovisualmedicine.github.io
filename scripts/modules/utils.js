@@ -38,7 +38,13 @@ e.gridDivider = (r, g, b, grid, sec, after, count) => {
   // }
 }
 
-e.stdDiv = () => e.centerDiv(undefined, undefined, e.chooseUnique(['#eeeeff', '#eeffee', '#ffeeee'], 1)[0], 3, 2)
+e.stdDiv = () => {
+  // themed deployments (e.g. aeterni.github.io) define --card in index.html and style .acard there:
+  if (window.getComputedStyle(document.documentElement).getPropertyValue('--card').trim()) {
+    return $('<div/>', { class: 'acard' }).appendTo('body')
+  }
+  return e.centerDiv(undefined, undefined, e.chooseUnique(['#eeeeff', '#eeffee', '#ffeeee'], 1)[0], 3, 2)
+}
 
 e.centerDiv = (width, container, color, margin, padding) => {
   return $('<div/>', {
@@ -230,12 +236,7 @@ e.mkModal = content => {
   }).appendTo('body')
     .append($('<div/>', {
       class: 'modal-content',
-      id: 'feedbackModalContent',
-      css: {
-        background: e.chooseUnique(['#eeeeff', '#eeffee', '#ffeeee'], 1)[0],
-        height: window.innerHeight * 0.75,
-        'overflow-y': 'auto'
-      }
+      id: 'feedbackModalContent'
     })
       .append($('<span/>', { class: 'close' }).html('&times;')
         .on('click', () => {

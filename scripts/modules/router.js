@@ -79,11 +79,7 @@ e.mkFooter = () => {
     href: `?about${lflag}`,
     id: 'abouta',
     css: {
-      // 'margin-left': '1%',
-      margin: 'auto',
-      display: 'inline-block',
-      'font-size': isMobile ? '3vw' : '1vw',
-      float: 'left'
+      display: 'inline-block'
     }
   }).html(`<b>Regarding <span class="notranslate">${window.location.hostname === 'aeterni.github.io' ? 'Æterni' : 'AV Medicine'}</span></b>`).appendTo(ft)
   // wand.$('<div/>', { css: { display: 'inline-block', 'margin-left': '1%', float: 'left' } }).appendTo(ft).html(' | ')
@@ -103,11 +99,7 @@ e.mkFooter = () => {
     href: '',
     id: 'contribL',
     css: {
-      // 'margin-left': '1%',
-      margin: 'auto',
-      display: 'inline-block',
-      'font-size': isMobile ? '3vw' : '1vw',
-      float: 'left'
+      display: 'inline-block'
     }
   }).html(`<b>${sWord()} this initiative</b>`).appendTo(ft).click(() => {
     wand.modal.show()
